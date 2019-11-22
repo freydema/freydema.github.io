@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="cardSupplier.js"></script>
+    <title>Test ton allemand</title>
+    <style>
+        #userInputField:focus {
+            outline: none;
+            box-shadow: none;
+            border-color:#6c757d;
+        }
+    </style>
+</head>
+
+
+<body class="text-center">
+<br>
+<br>
+<br>
+<br>
+<div class="container" id="app">
+    <div class="row" style="height:100px;">
+        <div class="col">
+            <button style="float: right" class="btn btn-outline-secondary btn-sm" type="button" id="button-addon2"  v-on:click="reverseCards">switch</button>
+        </div>
+    </div>
+
+    <div class="row" style="height:200px;">
+        <div class="col" style="text-align:center;">
+            <h2>{{ cardFront }}</h2>
+            <h4 class="text-muted" v-if="isAnswerVisible">{{ cardBack }}</h4>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="input-group mb-3">
+            <input type="text" id="userInputField" class="form-control" ref="userInputField" v-on:keyup.enter="showAnswer" v-on:keyup.page-down="nextCard" v-model="userInput" >
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+
+    var app = new Vue({
+        el: '#app',
+        mounted: function () { // will execute at pageload
+            this.initApplication()
+        },
+        data: {
+            currentCard: {},
+            cardFront: "",
+            cardBack: "",
+            userInput: "",
+            isAnswerVisible: false,
+            reverseMode: false
+        },
+        methods: {
+            initApplication: function () {
+                this.createCardQueue()
+                this.nextCard()
+            },
+
+            showAnswer: function () {
+                this.isAnswerVisible = true
+            },
+
+            reverseCards: function () {
+                this.reverseMode = !this.reverseMode
+                this.displayCard()
+                this.$refs.userInputField.focus()
+            },
+
+            nextCard: function () {
+                if (cardQueue.length == 0) {
+                    this.createCardQueue()
+                }
+                this.currentCard = cardQueue.pop()
+                this.displayCard()
+                this.userInput = ""
+                this.isAnswerVisible = false
+                this.$refs.userInputField.focus()
+            },
+
+            displayCard: function () {
+                if (this.reverseMode) {
+                    this.cardFront = this.currentCard.front
+                    this.cardBack = this.currentCard.back
+                } else {
+                    this.cardFront = this.currentCard.back
+                    this.cardBack = this.currentCard.front
+                }
+            },
+
+            createCardQueue: function () {
+                console.log("Creating new card queue")
+                cardQueue = shuffle(allCards())
+            }
+        }
+    })
+
+
+    function shuffle(array) {
+        var currentIndex = array.length;
+        var temporaryValue, randomIndex;
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+            // And swap it with the current element.
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+        return array;
+    };
+
+
+</script>
+
+</body>
+</html>
