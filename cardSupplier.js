@@ -78,6 +78,22 @@ function allCards(){
         {front:"Der Traum", back:"Le rêve"},
         {front:"Der Bus", back:"Le bus"},
         {front:"Das Schloss", back:"La serrure"},
+        // Lesson 6
+		{front:"Guten Morgen", back:"Bonjour (le matin)"},
+		{front:"Guten Tag", back:"Bonjour (toute la journée)"},
+		{front:"Guten Abend", back:"Bonsoir"},
+		{front:"Wilkommen", back:"Bienvenue"},
+		{front:"Sehr erfreut!", back:"Enchanté!"},
+		{front:"Ich muss gehen", back:"Je dois y aller"},
+		{front:"Auf Wiedersehen!", back:"Au revoir"},
+		{front:"Schönen Abend noch!", back:"Bonne soirée!"},
+		{front:"Gute Nacht", back:"Bonne nuit"},
+		{front:"Bis gleich!", back:"A tout de suite!"},
+		{front:"Bis später!", back:"A plus tard!"},
+		{front:"Bis bald!", back:"A bientôt!"},
+		{front:"Bis nächstes Mal!", back:"A la prochaine!"},
+		{front:"Bis morgen!", back:"A demain!"},
+		{front:"Grüss ... von mir", back:"Passe le bonjour à..."},
 
     ]
 }
