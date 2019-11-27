@@ -56,7 +56,7 @@ function allCards(){
         {front:"Haben Sie ...?", back:"Avez-vous ...?"},
         {front:"Gibt es ...?", back:"Y a-t-il ...?"},
         {front:"Wo gibt es ...?", back:"Ou y a-t-il ...?"},
-        {front:"Ich suche nach ...?", back:"Je cherche ..."},
+        {front:"Ich suche nach ...", back:"Je cherche ..."},
         {front:"Ich möchte ...", back:"Je voudrais ..."},
         {front:"Ich brauche ...", back:"J'ai besoin de ..."},
         {front:"Vielen Dank", back:"Merci beaucoup"},
