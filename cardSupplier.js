@@ -109,5 +109,10 @@ function allCards(){
         {front:"Das Duzen", back:"Le tutoiement"},
         {front:"Das Siezen", back:"Le vouvoiement"},
         {front:"Sollen wir uns duzen?", back:"On se tutoie?"},
+	// Lesson 9
+        {front:"Der Vater zeigt dem Sohn den Brief des Opas", back:"Le père montre au fils la lettre du grand-père"},
+        {front:"Die Mutter gibt der Nachbarin die Zeitung der Oma", back:"La mère donne à la voisine le journal de la grand-mère"},
+        {front:"Das Mädchen reicht dem Au-Pair-Mädchen das Glas des Kindes", back:"La jeune fille tend le verre de l'enfant à la jeune fille au pair"},
+        {front:"Die Eltern geben den Kindern die Geschenke der GrossEltern", back:"Les parents donnent aux enfants les cadeaux des grand-parents"},
     ]
 }
