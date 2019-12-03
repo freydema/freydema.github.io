@@ -4,7 +4,7 @@ function allCards(){
     {front:"Das Buch", back:"Le livre"},
     {front:"Das Loch", back:"Le trou"},
     {front:"Die Nacht", back:"La nuit"},
-    {front:"Das Wiedervereinigung", back:"La réunification"},
+    {front:"Die Wiedervereinigung", back:"La réunification"},
     {front:"Ich spreche Deutsch", back:"Je parle allemand"},
     {front:"Das Geschäft", back:"Le magasin"},
     {front:"Zurückkommen", back:"Revenir"},
