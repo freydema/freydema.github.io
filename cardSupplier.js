@@ -184,7 +184,12 @@ function allCards(){
     {front:"Die Mütze", back:"Le bonnet"},
     {front:"Die Kappe", back:"La casquette"},
     {front:"Tragen", back:"Porter"},
-
-
+    //Lesson 13,
+    {front:"Ich leihe dir meinen Kuli", back:"Je te prête mon stylo"},
+    {front:"Kennen Sie unsere Direktorin?", back:"Connaissez-vous notre directrice?"},
+    {front:"Gerd und seine Frau", back:"Gerd et sa femme"},
+    {front:"Anna und ihr Mann", back:"Anna et son mari"},
+    {front:"Frau Mueller, das ist Ihr Regenschirm", back:"Madame Mueller, voici votre parapluie"},
+    
 ]
 }
