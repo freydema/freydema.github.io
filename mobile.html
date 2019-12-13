@@ -32,14 +32,14 @@
 <div class="container" id="app">
 
     <div class="row" style="height:200px;">
-        <div class="col">
+        <div class="col" v-on:click="showAnswer">
             <br/>
             <br/>
-            <h2 v-on:click="showAnswer">{{ cardFront }}</h2>
+            <h2 >{{ cardFront }}</h2>
             <h4 class="text-muted" v-if="isAnswerVisible">{{ cardBack }}</h4>
         </div>
     </div>
-
+<br><br>
     <div class="row">
         <div class="col">
             <button style="float:left" class="btn btn-info btn-sm" type="button" v-on:click="previousCard"><<
