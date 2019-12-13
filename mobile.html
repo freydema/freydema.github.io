@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="cardSupplier.js"></script>
+    <title>Test ton allemand</title>
+    <style>
+        #userInputField:focus {
+            outline: none;
+            box-shadow: none;
+            border-color: #6c757d;
+        }
+    </style>
+</head>
+
+
+<body class="text-center">
+
+<div class="container" id="app">
+
+    <div class="row" style="height:200px;">
+        <div class="col">
+            <br/>
+            <br/>
+            <h2 v-on:click="showAnswer">{{ cardFront }}</h2>
+            <h4 class="text-muted" v-if="isAnswerVisible">{{ cardBack }}</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <button style="float:left" class="btn btn-info btn-sm" type="button" v-on:click="previousCard"><<
+            </button>
+        </div>
+        <div class="col">
+            <h6 class="text-muted">{{ currentIndex + 1}}/{{ cardQueue.length }}</h6>
+        </div>
+        <div class="col">
+            <button style="float:right" class="btn btn-info btn-sm" type="button" v-on:click="nextCard">>>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    var app = new Vue({
+        el: '#app',
+        mounted: function () { // will execute at pageload
+            this.initApplication()
+        },
+        data: {
+            cardQueue: [],
+            currentIndex: 0,
+            currentCard: {},
+            cardFront: "",
+            cardBack: "",
+            userInput: "",
+            isAnswerVisible: false,
+            reverseMode: false
+
+        },
+        methods: {
+            initApplication: function () {
+                this.createCardQueue()
+                this.currentIndex = 0
+                this.displayCardAtCurrentIndex()
+            },
+
+            showAnswer: function () {
+                this.isAnswerVisible = true
+            },
+
+            reverseCards: function () {
+                this.reverseMode = !this.reverseMode
+                this.displayCardAtCurrentIndex()
+                this.$refs.userInputField.focus()
+            },
+
+            nextCard: function () {
+                this.currentIndex += 1
+                if (this.currentIndex >= this.cardQueue.length) {
+                    this.createCardQueue()
+                    this.currentIndex = 0
+                }
+                this.displayCardAtCurrentIndex()
+            },
+
+            previousCard: function () {
+                if (this.currentIndex > 0) {
+                    this.currentIndex -= 1
+                    this.displayCardAtCurrentIndex()
+                }
+            },
+
+            displayCardAtCurrentIndex: function () {
+                this.currentCard = this.cardQueue[this.currentIndex]
+
+                if (this.reverseMode) {
+                    this.cardFront = this.currentCard.front
+                    this.cardBack = this.currentCard.back
+                } else {
+                    this.cardFront = this.currentCard.back
+                    this.cardBack = this.currentCard.front
+                }
+                this.userInput = ""
+                this.isAnswerVisible = false
+
+            },
+
+            createCardQueue: function () {
+                console.log("Creating new card queue")
+                this.cardQueue = shuffle(allCards())
+            }
+        }
+    })
+
+
+    function shuffle(array) {
+        var currentIndex = array.length;
+        var temporaryValue, randomIndex;
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+            // And swap it with the current element.
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+        return array;
+    };
+
+
+</script>
+
+</body>
+</html>
