@@ -126,7 +126,7 @@ function allCards(){
     {front:"Der Fuss", back:"Le pied"},
     {front:"Das Gesicht", back:"Le visage"},
     {front:"Das Haar", back:"Les cheveux"},
-    {front:"Der Hals", back:"Le coup"},
+    {front:"Der Hals", back:"Le cou"},
     {front:"Die Hand", back:"La main"},
     {front:"Das Handgelenk", back:"Le poignet"},
     {front:"Der Hintern", back:"Les fesses"},
@@ -212,6 +212,17 @@ function allCards(){
     {front:"Sie ist hübsch", back:"Elle est belle"},
     {front:"Er ist anziehend", back:"Il est séduisant"},
     {front:"Sie ist hässlich", back:"Elle est moche"},
-    
+    //Lesson 16,
+    {front:"Wie alt bis du?", back:"Quel age as-tu?"},
+    {front:"Wann hast du Geburstag?", back:"C'est quand ton anniversaire?"},
+    {front:"Wo bist du geboren?", back:"Ou es tu né?"},
+    {front:"Was bist du von Beruf?", back:"Quelle est ta profession?"},
+    {front:"Ich bin Rentner", back:"Je suis retraité"},
+    {front:"Ledig", back:"Célibataire"},
+    {front:"Verheiratet", back:"Marié"},
+    {front:"Geschieden", back:"Divorcé"},
+    {front:"Witwer", back:"Veuf"},
+    {front:"Witwe", back:"Veuve"},
+    {front:"Ich bin in einer Beziehung", back:"Je suis en couple"},
 ]
 }
