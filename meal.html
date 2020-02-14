@@ -73,11 +73,11 @@
                 this.createMealList()
             },
             suggestNewMeal: function (index) {
-                oldMeal = this.selectedMeals[mealplanner];
+                oldMeal = this.selectedMeals[index];
                 newMeal = this.mealPool.shift();
                 console.log("replacing " + oldMeal.name + " with " + newMeal.name);
                 this.mealPool.push(oldMeal);
-                this.selectedMeals.splice(mealplanner, 1, newMeal);
+                this.selectedMeals.splice(index, 1, newMeal);
             },
             createMealList: function () {
                 console.log("Loading all meals")
