@@ -1,8 +1,11 @@
 function allMeals(){
     return [
         {name:"Spaghetti bolognese"},
-        {name:"Guacamolee"},
+        {name:"Guacamole"},
         {name:"Pumpkin soup"},
+        {name:"Pea soup"},
+        {name:"Tortilla de patatas"},
+        {name:"Ratatouille"},
         {name:"Goat cheese salad"},
         {name:"Chili con carne"},
         {name:"Flamenkuche"},
@@ -12,5 +15,14 @@ function allMeals(){
         {name:"Salmon and cherry tomatoes"},
         {name:"Lentil soup"},
         {name:"Chicken and red cabbage"},
+        {name:"Gratinated spinach pasta"},
+        {name:"Quinoa salad"},
+        {name:"Pasta with salmon"},
+        {name:"Chicken curry"},
+        {name:"French potatoes"},
+        {name:"Paella"},
+        {name:"Scrambled eggs"},
+        {name:"Haloumi"},
+        {name:"Tsatsiki"},
     ]
 }
